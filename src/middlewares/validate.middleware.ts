@@ -15,6 +15,8 @@ export const validate =
       res.status(400).json({ message: 'Données invalides', errors });
       return;
     }
-    req[target] = result.data;
+    if (target !== 'query') {
+      req[target] = result.data;
+    }
     next();
   };

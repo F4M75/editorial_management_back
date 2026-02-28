@@ -26,7 +26,7 @@ cp .env.example .env
 # Appliquer les migrations et générer le client Prisma
 npx prisma migrate dev
 
-# Créer un utilisateur administrateur par défaut
+# Ajout des data dans la base donnée
 npm run seed
 ```
 

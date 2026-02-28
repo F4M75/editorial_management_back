@@ -231,6 +231,44 @@ async function main() {
   }
 
   console.log(`✔ Articles created: ${articles.length} articles`);
+
+  // ─── Email Notifications ──────────────────────────────────────────────────────
+  const notifications = [
+    {
+      id: 'notif-1',
+      articleId: 'article-1',
+      recipients: JSON.stringify(['redaction@editorial.com', 'chef.desk@editorial.com']),
+      subject: 'Nouvel article publié : L\'intelligence artificielle révolutionne l\'industrie',
+      sentAt: new Date('2024-11-15T10:30:00'),
+      status: 'sent' as const,
+    },
+    {
+      id: 'notif-2',
+      articleId: 'article-3',
+      recipients: JSON.stringify(['abonnes@editorial.com', 'partenaires@editorial.com', 'presse@editorial.com']),
+      subject: 'À la une — Festival de Cannes 2025 : les films à ne pas manquer',
+      sentAt: new Date('2025-01-10T09:00:00'),
+      status: 'sent' as const,
+    },
+    {
+      id: 'notif-3',
+      articleId: 'article-4',
+      recipients: JSON.stringify(['newsletter@editorial.com']),
+      subject: 'Article santé : Les nouvelles thérapies contre le cancer',
+      sentAt: new Date('2025-01-20T14:15:00'),
+      status: 'failed' as const,
+    },
+  ];
+
+  for (const notif of notifications) {
+    await prisma.emailNotification.upsert({
+      where: { id: notif.id },
+      update: {},
+      create: notif,
+    });
+  }
+
+  console.log(`✔ Notifications created: ${notifications.length} notifications`);
   console.log('');
   console.log('─────────────────────────────────────────');
   console.log('Credentials:');

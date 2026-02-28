@@ -144,7 +144,7 @@ router.post('/', articleController.createArticle as never);
 /**
  * @swagger
  * /articles/{id}:
- *   put:
+ *   patch:
  *     summary: Modifier un article
  *     tags: [Articles]
  *     security:
@@ -177,7 +177,7 @@ router.post('/', articleController.createArticle as never);
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.put('/:id', articleController.updateArticle as never);
+router.patch('/:id', articleController.updateArticle as never);
 
 /**
  * @swagger

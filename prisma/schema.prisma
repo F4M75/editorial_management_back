@@ -36,7 +36,7 @@ model Category {
   id          String            @id @default(cuid())
   name        String
   slug        String            @unique
-  description String
+  description String?
   color       String
   articles    ArticleCategory[]
 }

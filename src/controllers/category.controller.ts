@@ -4,7 +4,9 @@ import * as categoryService from '../services/category.service';
 
 const handleError = (res: Response, err: unknown) => {
   const message = err instanceof Error ? err.message : 'Erreur serveur';
-  const status = message === 'Catégorie non trouvée' ? 404 : 500;
+  let status = 500;
+  if (message === 'Catégorie non trouvée') status = 404;
+  else if (message.startsWith('Impossible de supprimer')) status = 400;
   res.status(status).json({ message });
 };
 

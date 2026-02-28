@@ -69,7 +69,7 @@ export const createCategorySchema = z.object({
     .min(1, 'Slug requis')
     .max(100)
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug invalide (ex: mon-slug)'),
-  description: z.string().min(1, 'Description requise'),
+  description: z.string().optional(),
   color: z
     .string()
     .regex(/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/, 'Couleur hex invalide (ex: #FF5733)'),

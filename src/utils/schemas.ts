@@ -82,17 +82,25 @@ export const updateCategorySchema = createCategorySchema.partial().refine(
 
 // ─── Import ───────────────────────────────────────────────────────────────────
 
-export const importArticleRowSchema = z.object({
-  title: z.string().min(1, 'Titre requis'),
-  content: z.string().min(1, 'Contenu requis'),
-  excerpt: z.string().min(1, 'Extrait requis'),
-  author: z.string().min(1, 'Auteur requis'),
-  networkId: z.string().min(1, 'Réseau requis'),
-  categories: z.array(z.string()).optional().default([]),
-  status: articleStatusEnum.optional().default('draft'),
-  featured: z.boolean().optional().default(false),
-  publishedAt: z.string().datetime().nullable().optional(),
-});
+export const importArticleRowSchema = z
+  .object({
+    title:      z.string().min(1, 'Titre requis'),
+    content:    z.string().min(1, 'Contenu requis'),
+    excerpt:    z.string().min(1, 'Extrait requis'),
+    author:     z.string().min(1, 'Auteur requis'),
+    // Accept either resolved ID or human-readable name
+    networkId:  z.string().optional(),
+    network:    z.string().optional(),
+    categories: z.array(z.string()).optional().default([]),
+    category:   z.string().optional(),
+    status:     articleStatusEnum.optional().default('draft'),
+    featured:   z.boolean().optional().default(false),
+    publishedAt: z.string().datetime().nullable().optional(),
+  })
+  .refine(
+    (d) => !!(d.networkId || d.network),
+    { message: "Le champ 'network' (nom) ou 'networkId' est requis", path: ['network'] },
+  );
 
 export const importArticlesSchema = z
   .array(importArticleRowSchema)

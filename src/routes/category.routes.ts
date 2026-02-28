@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import { authenticate } from '../middlewares/auth.middleware';
+import { validate } from '../middlewares/validate.middleware';
+import { createCategorySchema, updateCategorySchema } from '../utils/schemas';
 import * as categoryController from '../controllers/category.controller';
 
 const router = Router();
@@ -79,7 +81,7 @@ router.get('/', categoryController.getCategories as never);
  *       401:
  *         $ref: '#/components/responses/Unauthorized'
  */
-router.post('/', categoryController.createCategory as never);
+router.post('/', validate(createCategorySchema), categoryController.createCategory as never);
 
 /**
  * @swagger
@@ -126,7 +128,7 @@ router.post('/', categoryController.createCategory as never);
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.patch('/:id', categoryController.updateCategory as never);
+router.patch('/:id', validate(updateCategorySchema), categoryController.updateCategory as never);
 
 /**
  * @swagger

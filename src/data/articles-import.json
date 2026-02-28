@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Le spatial privé : la nouvelle conquête des milliardaires",
+    "content": "SpaceX, Blue Origin, Virgin Galactic... Les entreprises privées se sont lancées dans une course effrénée à la conquête spatiale. Ce qui était autrefois l'apanage des États est désormais disputé par des acteurs privés aux ambitions démesurées. Entre tourisme spatial, exploitation des astéroïdes et colonisation de Mars, les projets foisonnent et redessinent les contours de l'exploration spatiale du XXIe siècle.",
+    "excerpt": "Les entreprises privées redéfinissent les règles de la conquête spatiale.",
+    "author": "Marie Dupont",
+    "networkId": "network-tech",
+    "categories": ["catTech"],
+    "status": "published",
+    "featured": true,
+    "publishedAt": "2025-02-01T10:00:00.000Z"
+  },
+  {
+    "title": "Sobriété numérique : réduire l'empreinte carbone d'Internet",
+    "content": "Internet représente aujourd'hui environ 4% des émissions mondiales de CO2, un chiffre en constante augmentation. Face à ce constat alarmant, le concept de sobriété numérique gagne du terrain. Des pratiques simples comme compresser ses images, nettoyer sa boîte mail ou limiter le streaming en haute définition peuvent avoir un impact collectif significatif.",
+    "excerpt": "Internet pèse lourd sur le climat. La sobriété numérique s'impose comme une nécessité.",
+    "author": "Jean Martin",
+    "networkId": "network-tech",
+    "categories": [],
+    "status": "published",
+    "featured": false,
+    "publishedAt": "2025-01-28T09:30:00.000Z"
+  },
+  {
+    "title": "Inflation : les ménages face à la hausse des prix alimentaires",
+    "content": "Après deux années de forte inflation, les prix alimentaires continuent de peser sur le pouvoir d'achat des ménages français. Les rayons de grande surface affichent des hausses allant de 8 à 15% sur les produits de base. Face à cette situation, les comportements de consommation évoluent : marques distributeurs, achats en vrac et circuits courts gagnent en popularité.",
+    "excerpt": "Les prix alimentaires restent élevés et contraignent les ménages à adapter leurs habitudes.",
+    "author": "Admin",
+    "networkId": "network-presse",
+    "categories": [],
+    "status": "published",
+    "featured": false,
+    "publishedAt": "2025-02-05T08:00:00.000Z"
+  },
+  {
+    "title": "Jeux Olympiques 2028 : Los Angeles se prépare",
+    "content": "Dans trois ans, Los Angeles accueillera les Jeux Olympiques d'été. La ville poursuit ses préparatifs à un rythme soutenu : rénovation des infrastructures sportives, plan de transport renforcé et programme culturel ambitieux. L'objectif affiché est d'organiser les premiers Jeux neutres en carbone de l'histoire olympique.",
+    "excerpt": "LA 2028 se construit avec l'ambition d'organiser les Jeux les plus durables de l'histoire.",
+    "author": "Marie Dupont",
+    "networkId": "network-presse",
+    "categories": [],
+    "status": "draft",
+    "featured": false,
+    "publishedAt": null
+  },
+  {
+    "title": "Le retour en grâce du jazz dans la culture populaire",
+    "content": "Portée par des artistes comme Esperanza Spalding, Kamasi Washington ou encore le collectif parisien Soul Square, la musique jazz connaît un renouveau inattendu auprès des jeunes générations. Les clubs de jazz affichent complet, les ventes de vinyles s'envolent et les collaborations entre jazz et hip-hop se multiplient, brouillant les frontières entre les genres.",
+    "excerpt": "Le jazz séduit à nouveau les jeunes grâce à une scène créative et des fusions inédites.",
+    "author": "Jean Martin",
+    "networkId": "network-culture",
+    "categories": [],
+    "status": "published",
+    "featured": true,
+    "publishedAt": "2025-01-15T14:00:00.000Z"
+  },
+  {
+    "title": "Burnout parental : le tabou qui se lève enfin",
+    "content": "Longtemps passé sous silence, le burnout parental touche pourtant entre 5 et 8% des parents selon les études récentes. Épuisement émotionnel, distanciation affective et perte de sentiment de compétence sont les trois piliers de ce syndrome encore peu reconnu. Des psychologues et associations militent pour une meilleure prise en charge et une déstigmatisation de la parole.",
+    "excerpt": "Le burnout parental sort de l'ombre grâce à une parole libérée et des études scientifiques.",
+    "author": "Admin",
+    "networkId": "network-presse",
+    "categories": [],
+    "status": "published",
+    "featured": false,
+    "publishedAt": "2025-02-10T11:00:00.000Z"
+  }
+]

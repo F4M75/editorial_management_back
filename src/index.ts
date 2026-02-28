@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import router from "./routes";
 import { swaggerSpec } from "./utils/swagger";
@@ -7,6 +8,7 @@ import { swaggerSpec } from "./utils/swagger";
 const app = express();
 const PORT = process.env.PORT ?? 4000;
 
+app.use(cors({ origin: process.env.FRONTEND_URL ?? 'http://localhost:3000', credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

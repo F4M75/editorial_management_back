@@ -25,10 +25,6 @@ export const createCategory = async (req: AuthRequest, res: Response): Promise<v
       description: string;
       color: string;
     };
-    if (!name || !slug || !description || !color) {
-      res.status(400).json({ message: 'name, slug, description et color sont requis' });
-      return;
-    }
     const category = await categoryService.createCategory({ name, slug, description, color });
     res.status(201).json(category);
   } catch (err) {

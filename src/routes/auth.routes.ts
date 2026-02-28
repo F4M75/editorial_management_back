@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import * as authController from '../controllers/auth.controller';
+import { validate } from '../middlewares/validate.middleware';
+import { loginSchema } from '../utils/schemas';
 
 const router = Router();
 
@@ -27,7 +29,7 @@ const router = Router();
  *               email:
  *                 type: string
  *                 format: email
- *                 example: admin@example.com
+ *                 example: admin@editorial.com
  *               password:
  *                 type: string
  *                 example: "motdepasse123"
@@ -50,6 +52,6 @@ const router = Router();
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post('/login', authController.login);
+router.post('/login', validate(loginSchema), authController.login);
 
 export default router;

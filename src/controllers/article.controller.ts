@@ -66,10 +66,6 @@ export const deleteArticle = async (req: AuthRequest, res: Response): Promise<vo
 export const changeStatus = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const { status } = req.body as { status: 'draft' | 'published' | 'archived' };
-    if (!status) {
-      res.status(400).json({ message: 'Statut requis' });
-      return;
-    }
     const article = await articleService.changeStatus(req.params['id'] as string, status);
     res.json(article);
   } catch (err) {
@@ -80,10 +76,6 @@ export const changeStatus = async (req: AuthRequest, res: Response): Promise<voi
 export const notifyArticle = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const { recipients, subject } = req.body as { recipients: string[]; subject: string };
-    if (!recipients?.length || !subject) {
-      res.status(400).json({ message: 'recipients et subject requis' });
-      return;
-    }
     const notification = await articleService.notifyArticle(
       req.params['id'] as string,
       recipients,

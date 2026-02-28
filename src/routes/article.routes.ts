@@ -1,5 +1,13 @@
 import { Router } from 'express';
 import { authenticate } from '../middlewares/auth.middleware';
+import { validate } from '../middlewares/validate.middleware';
+import {
+  createArticleSchema,
+  updateArticleSchema,
+  changeStatusSchema,
+  notifyArticleSchema,
+  articleListQuerySchema,
+} from '../utils/schemas';
 import * as articleController from '../controllers/article.controller';
 
 const router = Router();
@@ -27,44 +35,36 @@ router.use(authenticate as never);
  *         schema:
  *           type: integer
  *           default: 1
- *         description: Numéro de page
  *       - in: query
  *         name: limit
  *         schema:
  *           type: integer
  *           default: 10
- *         description: Nombre d'éléments par page
  *       - in: query
  *         name: status
  *         schema:
  *           type: string
  *           enum: [draft, published, archived]
- *         description: Filtrer par statut
  *       - in: query
  *         name: featured
  *         schema:
  *           type: boolean
- *         description: Filtrer les articles mis en avant
  *       - in: query
  *         name: networkId
  *         schema:
  *           type: string
- *         description: Filtrer par réseau
  *       - in: query
  *         name: categoryId
  *         schema:
  *           type: string
- *         description: Filtrer par catégorie
  *       - in: query
  *         name: author
  *         schema:
  *           type: string
- *         description: Filtrer par auteur
  *       - in: query
  *         name: search
  *         schema:
  *           type: string
- *         description: Recherche dans le titre, l'extrait et le contenu
  *     responses:
  *       200:
  *         description: Liste paginée d'articles
@@ -75,7 +75,7 @@ router.use(authenticate as never);
  *       401:
  *         $ref: '#/components/responses/Unauthorized'
  */
-router.get('/', articleController.getArticles as never);
+router.get('/', validate(articleListQuerySchema, 'query'), articleController.getArticles as never);
 
 /**
  * @swagger
@@ -139,7 +139,7 @@ router.get('/:id', articleController.getArticleById as never);
  *       401:
  *         $ref: '#/components/responses/Unauthorized'
  */
-router.post('/', articleController.createArticle as never);
+router.post('/', validate(createArticleSchema), articleController.createArticle as never);
 
 /**
  * @swagger
@@ -177,7 +177,7 @@ router.post('/', articleController.createArticle as never);
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.patch('/:id', articleController.updateArticle as never);
+router.patch('/:id', validate(updateArticleSchema), articleController.updateArticle as never);
 
 /**
  * @swagger
@@ -254,7 +254,7 @@ router.delete('/:id', articleController.deleteArticle as never);
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.patch('/:id/status', articleController.changeStatus as never);
+router.patch('/:id/status', validate(changeStatusSchema), articleController.changeStatus as never);
 
 /**
  * @swagger
@@ -309,6 +309,6 @@ router.patch('/:id/status', articleController.changeStatus as never);
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post('/:id/notify', articleController.notifyArticle as never);
+router.post('/:id/notify', validate(notifyArticleSchema), articleController.notifyArticle as never);
 
 export default router;
